@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Product {% endblock %}
+{% block add_products_active %} active {% endblock add_products_active %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
+<form action="/add_products/" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+<div class="container mt-4">
+{{ form.as_p }}
+<button class="btn btn-primary">Add Product</button>
+</div>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert('Your Product is added successfully.');
+    document.location = '/';
+    {% endif %}
+</script>
+{% endblock %}
+
+
